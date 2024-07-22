@@ -18,9 +18,9 @@ current_date=$(date +%s)
 
 # For each date
 for date in "${dates[@]}"; do
-    scheduled_date=$(date -d"$date ${times[i]}" +%s)
     # For each service
     for i in "${!commands[@]}"; do
+        scheduled_date=$(date -d"$date ${times[i]}" +%s)
         # Define a name for the timer
         timer_name="smh_${i}_${date//[-]/}"
         # If the date is today and the time is in the past, schedule the service to run within 1 minute
